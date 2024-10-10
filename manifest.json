@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Geçmiş Temizleyici",
+  "version": "1.1",
+  "description": "Seçilen web sitelerinin ve belirlenen kelimelerin tarayıcı geçmişinden silinmesini sağlayan minimalist bir uzantı.",
+  "author": "MonkeyDNika",
+  "permissions": [
+    "history"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
