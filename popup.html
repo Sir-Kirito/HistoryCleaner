@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Geçmişi Temizleyici</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 20px;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .tab-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 15px;
+        }
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background-color: #1F1F1F;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 5px; /* Aralarına boşluk ekler */
+        }
+        .tab:hover {
+            background-color: #333333;
+        }
+        .button {
+            background-color: #1F1F1F;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 5px; /* Butonlar arasında boşluk */
+        }
+        .button:hover {
+            background-color: #333333;
+        }
+        input {
+            background-color: #1F1F1F;
+            color: #FFFFFF;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            margin-top: 5px;
+            width: 100%;
+        }
+        input::placeholder {
+            color: #888888;
+        }
+        h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: center; /* Başlığı ortala */
+        }
+        .status {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .status.success {
+            color: green;
+        }
+        .status.error {
+            color: red;
+        }
+        .filter-list {
+            max-height: 100px;
+            overflow-y: auto;
+            border: 1px solid #444444;
+            background-color: #1F1F1F;
+            border-radius: 5px;
+        }
+        .filter-list div {
+            padding: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .filter-list div:hover {
+            background-color: #333333;
+        }
+        .trash-icon {
+            color: red; /* Çöp kutusu rengi */
+            cursor: pointer;
+            margin-left: 10px; /* Simgeler arasına boşluk */
+        }
+        #adult-button {
+            position: absolute; /* Düğmeyi sağ üst köşeye yerleştir */
+            top: 10px;
+            right: 10px;
+            background-color: #1F1F1F;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #adult-button:hover {
+            background-color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="icon.png" alt="Icon" style="width: 50px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;"> <!-- Logo ortalanır -->
+        <h1>Web Geçmişi Temizleyici</h1>
+
+        <!-- +18 Butonu -->
+        <button id="adult-button" title="Yetişkin içerikleri temizle">+18</button>
+
+        <!-- Sekmeler -->
+        <div class="tab-container">
+            <div id="main-tab" class="tab">Ana Menü</div>
+            <div id="filters-tab" class="tab">Filtreler</div>
+        </div>
+
+        <!-- Ana Menü -->
+        <div id="main-menu" class="menu">
+            <label for="filter-input">Filtre:</label>
+            <input type="text" id="filter-input" placeholder="Örnek: youtube, arama cümlesi">
+
+            <button id="save-filter" class="button">Filtreyi Kaydet</button>
+            <button id="clear-history" class="button">Geçmişi Temizle</button>
+            <div class="status" id="status-message"></div> <!-- Geri bildirim alanı -->
+        </div>
+
+        <!-- Filtreler Menüsü -->
+        <div id="filters-menu" class="menu" style="display: none;">
+            <h3>Yüklenmiş Filtreler:</h3>
+            <div class="filter-list" id="filter-list"></div>
+            <div id="filter-count" class="status"></div> <!-- Filtre sayısı alanı -->
+
+            <input type="text" id="load-filter-input" placeholder="Filtre dosyasının URL'sini girin">
+            <button id="load-filters" class="button">Filtreleri Yükle</button>
+            <button id="clear-filters" class="button">Filtrelerle Geçmişi Temizle</button>
+            <div class="status" id="filter-status-message"></div> <!-- Filtre temizleme geri bildirim alanı -->
+        </div>
+
+        <div style="font-size: 12px; margin-top: 10px; color: #FFDD00;">
+            **Not:** Bu uzantı, yalnızca yüklendikten sonraki geçmiş öğelerine erişebilir.
+        </div>
+
+        <div style="font-size: 12px; margin-top: 10px;">Yapımcı: MonkeyDNika</div>
+        <div style="font-size: 12px;">İletişim:<br>Discord - MonkeyDNika</div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
